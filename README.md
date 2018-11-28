@@ -1,6 +1,7 @@
 # shot.io
 
-Một game bắn súng io đơn giản sử dụng nodejs, socket.io, express, threejs...
+Một game bắn súng io đơn giản sử dụng nodejs, socket.io, express, threejs...code trong vài tiếng đồng hồ.
+
 ![screen](scene.gif)
 
 ## Cài đặt
