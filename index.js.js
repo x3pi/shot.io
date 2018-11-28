@@ -231,6 +231,4 @@ app.get('/', (request, response) => {
 });
 
 const port = 3000;
-server.listen(port, () => {
-    console.log(`Starting server on port ${port}`);
-});
+server.listen(process.env.PORT || port);
