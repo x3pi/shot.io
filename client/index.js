@@ -208,7 +208,6 @@ socket.on('state', (players, bullets, walls) => {
     Object.values(players).forEach((player) => {
         let playerMesh = Meshes[player.id];
         if (!playerMesh) {
-            console.log('create player mesh');
             playerMesh = new THREE.Group();
             playerMesh.castShadow = true;
             Meshes[player.id] = playerMesh;
@@ -219,7 +218,6 @@ socket.on('state', (players, bullets, walls) => {
         playerMesh.rotation.y = - player.angle;
 
         if (!playerMesh.getObjectByName('body')) {
-            console.log('create body mesh');
             mesh = new THREE.Mesh(new THREE.CylinderGeometry(player.radius, player.radius, player.radius), playerMaterial);
             mesh.castShadow = true;
             mesh.name = 'body';
@@ -228,7 +226,6 @@ socket.on('state', (players, bullets, walls) => {
 
         if (font) {
             if (!playerMesh.getObjectByName('nickname')) {
-                console.log('create nickname mesh');
                 mesh = new THREE.Mesh(
                     new THREE.TextGeometry(player.nickname,
                         { font: font, size: 4, height: 1 }),
@@ -249,7 +246,6 @@ socket.on('state', (players, bullets, walls) => {
                     mesh = null;
                 }
                 if (!mesh) {
-                    console.log('create health mesh');
                     mesh = new THREE.Mesh(
                         new THREE.TextGeometry(player.health.toString(),
                             { font: font, size: 4, height: 1 }),
@@ -320,7 +316,6 @@ socket.on('state', (players, bullets, walls) => {
 
 let movement = {};
 window.onkeydown = function (event) {
-    console.log(event.keyCode);
 
     if (event.keyCode == 32) { movement.shoot = true }
     if (event.keyCode == 87) { movement.forward = true }
@@ -331,7 +326,6 @@ window.onkeydown = function (event) {
 
 
 window.onkeyup = function (event) {
-    console.log(event.keyCode)
     if (event.keyCode == 32) { movement.shoot = false }
     if (event.keyCode == 87) { movement.forward = false }
     if (event.keyCode == 83) { movement.back = false }
