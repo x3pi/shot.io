@@ -230,5 +230,5 @@ app.get('/', (request, response) => {
     response.sendFile(path.join(__dirname, '/client/index.html'));
 });
 
-const port = 3000;
-server.listen(process.env.PORT || port);
+const port = process.env.PORT || 3000;
+server.listen(port, () => console.log('listening on port ' + port));
